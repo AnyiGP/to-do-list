@@ -22,7 +22,7 @@ function TodoList() {
     idKey: 0,
   });
 
-  const [selectedTask, setSelectedTask] = useState(null);
+  const [selectedTasks, setSelectedTasks] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,14 +45,27 @@ function TodoList() {
   };
 
   const handleSelectTask = (selectedTask) => {
-    setSelectedTask(selectedTask);
+    setSelectedTasks((prevSelectedTasks) => {
+    if (prevSelectedTasks.includes(selectedTask)) {
+      return prevSelectedTasks.filter((task) => task !== selectedTask);
+    } else {
+      return [...prevSelectedTasks, selectedTask];
+    }
+    })
   };
 
   return (
     <ul>
       {list.map((task, index) => {
-        return <TodoItem key={index} task={task} onRemove={handleRemoveTask} onSelect={handleSelectTask}
-        isSelected={selectedTask === task}/>;
+        return (
+          <TodoItem
+            key={index}
+            task={task}
+            onRemove={handleRemoveTask}
+            onSelect={handleSelectTask}
+            isSelected={selectedTasks.includes(task)}
+          />
+        );
       })}
       <div>
         <h3>Agregar Tarea</h3>
