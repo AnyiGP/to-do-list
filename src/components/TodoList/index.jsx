@@ -39,7 +39,7 @@ function TodoList() {
 
   const handleRemoveTask = (taskToRemove) => {
     setList((prevList) => prevList.filter((task) => task !== taskToRemove));
-  };
+  }; // toma el param taskToRemove. fx setList actualiza el estado de list, tomando el estado anterior prevList. Con filter devuelvo un nuevo arr que excluye! taskToRemove
 
   const handleSelectTask = (selectedTask) => {
     setSelectedTasks((prevSelectedTasks) => {
