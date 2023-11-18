@@ -30,7 +30,7 @@ function TodoList() {
     }));
   };
 
-  const handleAddPlayer = () => {
+  const handleAddTask = () => {
     setList((prevList) => [...prevList, newTask]);
     setNewTask({
       name: "",
@@ -38,14 +38,14 @@ function TodoList() {
     });
   };
 
-  const handleRemovePlayer = (playerToRemove) => {
-    setList((prevList) => prevList.filter((player) => player !== playerToRemove));
+  const handleRemoveTask = (taskToRemove) => {
+    setList((prevList) => prevList.filter((task) => task !== taskToRemove));
   };
 
   return (
     <ul>
       {list.map((task, index) => {
-        return <TodoItem key={index} task={task} onRemove={handleRemovePlayer}/>;
+        return <TodoItem key={index} task={task} onRemove={handleRemoveTask}/>;
       })}
       <div>
         <h3>Agregar Tarea</h3>
@@ -64,7 +64,7 @@ function TodoList() {
           onChange={handleInputChange}
         />
 
-        <button onClick={handleAddPlayer}>Agregar</button>
+        <button onClick={handleAddTask}>Agregar</button>
       </div>
     </ul>
   );
