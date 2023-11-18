@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import TodoItem from "../TodoItem"; //como la card
 
-//import { ButtonGroup, ToggleButton } from "react-bootstrap";
-//import Table from "react-bootstrap/Table";
-
 const initialTaskList = [
   {
     name: "Ingresa una tarea, por ejemplo compras",
@@ -24,7 +21,7 @@ function TodoList() {
 
   const [selectedTasks, setSelectedTasks] = useState([]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { //maneja cambios en los campos de entrada y actualizar el estado newTask en consecuencia
     const { name, value } = e.target;
     setNewTask((newTask) => ({
       ...newTask,
