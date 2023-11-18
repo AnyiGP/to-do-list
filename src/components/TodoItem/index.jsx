@@ -1,13 +1,14 @@
 import React from "react";
 
-function TodoItem({ task, onRemove }) { //toma a task como prop desestructura sus atributos
+function TodoItem({ task, onRemove, onSelect, isSelected }) {
+  //toma a task como prop y desestructura sus atributos
   const { name, idKey } = task;
 
   return (
-    <li>
+    <li className={`list ${isSelected ? "selected" : ""}`}>
       <p>{name}</p>
       <p>{idKey}</p>
-      <button>Completar</button>
+      <button onClick={() => onSelect(task)}>Completar/Salección</button>
       <button onClick={() => onRemove(task)}>Eliminar</button>
     </li>
   );

@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.list {
+  /* Estilos base de la tarjeta */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.selected {
+  /* Estilos adicionales cuando la tarjeta está seleccionada */
+  background-color: #e0e0e0;
+}
+

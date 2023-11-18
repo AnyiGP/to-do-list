@@ -22,6 +22,8 @@ function TodoList() {
     idKey: 0,
   });
 
+  const [selectedTask, setSelectedTask] = useState(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTask((newTask) => ({
@@ -42,10 +44,15 @@ function TodoList() {
     setList((prevList) => prevList.filter((task) => task !== taskToRemove));
   };
 
+  const handleSelectTask = (selectedTask) => {
+    setSelectedTask(selectedTask);
+  };
+
   return (
     <ul>
       {list.map((task, index) => {
-        return <TodoItem key={index} task={task} onRemove={handleRemoveTask}/>;
+        return <TodoItem key={index} task={task} onRemove={handleRemoveTask} onSelect={handleSelectTask}
+        isSelected={selectedTask === task}/>;
       })}
       <div>
         <h3>Agregar Tarea</h3>
